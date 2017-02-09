@@ -148,6 +148,32 @@ class Donation_Feeds {
 		return $taxonomy;
 	}
 
+    /**
+     * Wrapper function to register a new donation feed total
+     * @param  string $json_feed   JSON feed name
+     * @param  string $year        Year name
+     * @return object              JSON feed class object
+     */
+
+    public function register_donation_feed_total ( $feed_year = '', $quicket_id = '', $quicket_url = '') {
+
+        if ( ! $feed_year || ! $quicket_id || ! $quicket_url ) return;
+
+        $donation_feed_total = new Donation_Feed_Total( $feed_year, $quicket_id, $quicket_url);
+
+        return $donation_feed_total; 
+    }
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * Load frontend CSS.
 	 * @access  public

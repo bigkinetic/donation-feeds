@@ -2,7 +2,7 @@
 /*
 Plugin Name: Donation Feeds
 Plugin URI: https://bigkinetic.com
-Description: A plugin for displaying the Donation feeds. 
+Description: A plugin for displaying the donation feeds. 
 Version: 1.0.0
 Author: BigKinetic
 Author URI: https://bigkinetic.com
@@ -42,13 +42,25 @@ require_once( 'includes/class-donation-feeds-settings.php' );
 require_once( 'includes/lib/class-donation-feeds-admin-api.php' );
 require_once( 'includes/lib/class-donation-feeds-post-type.php' );
 require_once( 'includes/lib/class-donation-feeds-taxonomy.php' );
+require_once( 'includes/lib/class-donation-feed.php' );
+
+// Load admin files
+require_once('admin/settings-init.php');
+require_once('admin/cron-init.php');
+
+// Load feed module
+require_once('module.php');
 
 /**
  * Returns the main instance of Donation_Feeds to prevent the need to use globals.
  *
+ * @package DonationFeeds
+ * @category Plugin
+ * @author BigKinetic
  * @since  1.0.0
  * @return object Donation_Feeds
  */
+
 function Donation_Feeds () {
 	$instance = Donation_Feeds::instance( __FILE__, '1.0.0' );
 
